@@ -35,7 +35,10 @@ function operate(operator,a,b){
     return tmp;
 }
 
-function sendValue(x){   
+function sendValue(x){ 
+    if(x.charAt(0)==0){
+        x=x.slice(1);
+    }  
     if(x=='+') operators+=' +';
     if(x=='-') operators+=' -';
     if(x=='*') operators+=' *';
@@ -44,6 +47,7 @@ function sendValue(x){
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
+        if(res.innerHTML==0) res.innerHTML="";
         res.append(x);
     }
 }
@@ -51,7 +55,7 @@ function sendValue(x){
 
 function evaluate(result,operators){
     result=result.split(/[ +()*\/:?-]/g);
-    operators=operators.split(' ');
+    if(operators.length>0) operators=operators.split(' ');
     a=result[0];
     for(var i=1; i<operators.length;i++){
         b=result[i];
@@ -87,7 +91,7 @@ function disable(){
 }
 
 function clearField(){
-    res.innerHTML="";
+    res.innerHTML="0";
     var buttons=document.getElementsByClassName('number');
     var rows=document.getElementsByClassName('row');
     for(var i=0; i<rows.length;i++){

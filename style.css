@@ -11,7 +11,7 @@ h1{
 }
 
 #calculator{
-    height: 610px;
+    height: 570px;
     width: 404px;
     background-color: beige;
     margin: 50px auto auto auto;
@@ -19,10 +19,14 @@ h1{
 }
 
 #result{
-    height: 200px;
+    height: 120px;
     width: 404px;
     background-color: beige;
     border: solid 1px maroon;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 40px;
+    color: maroon;
 }
 
 .number{

@@ -34,7 +34,7 @@ h1{
     margin: -3px;
 }
 
-#row{
+.row{
     height: 100px;
     width: 402px;
     border: solid 1px maroon;

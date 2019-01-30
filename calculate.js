@@ -1,8 +1,6 @@
 var res=document.getElementById('result');
 var a='';
 var b='';
-var first='';
-var second='';
 var operators=[];
 var tmp='';
 
@@ -55,16 +53,48 @@ function evaluate(result,operators){
     a=result[0];
     for(var i=1; i<operators.length;i++){
         b=result[i];
+        if(operators[i]=='/' && b=='0') {
+            res.innerHTML="";
+            res.append("CANNOT DIVIDE BY ZERO");
+            disable();
+            return;
+        }
         tmp=operate(operators[i],a,b);
         // operators=removeFromArray(operators,operators[i]);
         a=tmp;
     }
     res.innerHTML="";
     res.append(tmp);  
+    refresh();
+}
+
+function refresh(){
+    operators=[];
+}
+
+function disable(){
+    var buttons=document.getElementsByClassName('number');
+    var rows=document.getElementsByClassName('row');
+    for(var i=0; i<rows.length;i++){
+        rows[i].style.display="none";
+    }
+    for(var i=0; i<buttons.length;i++){
+        buttons[i].style.display="none";
+    }
+    
 }
 
 function clearField(){
     res.innerHTML="";
+    var buttons=document.getElementsByClassName('number');
+    var rows=document.getElementsByClassName('row');
+    for(var i=0; i<rows.length;i++){
+        rows[i].style.display="";
+    }
+    for(var i=0; i<buttons.length;i++){
+        buttons[i].style.display="";
+    }
+    refresh();
 }
 
 function removeFromArray(arr, removeNum){

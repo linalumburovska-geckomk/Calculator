@@ -1,8 +1,10 @@
 var res=document.getElementById('result');
+var decimal=document.getElementById('decimal');
 var a='';
 var b='';
 var operators=[];
 var tmp='';
+var onceClicked=false;
 
 function add(a,b){
     return parseFloat(a) + parseFloat(b);
@@ -95,6 +97,7 @@ function clearField(){
         buttons[i].style.display="";
     }
     refresh();
+    enableDecimal();
 }
 
 function removeFromArray(arr, removeNum){
@@ -108,4 +111,12 @@ function removeFromArray(arr, removeNum){
         }
     }
     return newArr;
+}
+
+function disableDecimal(){
+    decimal.style.display="none";
+}
+
+function enableDecimal(){
+    decimal.style.display="";
 }

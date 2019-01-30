@@ -38,6 +38,12 @@ h1{
     margin: -3px;
 }
 
+#seven,#eight,#nine{
+    font-size: 20px;
+    padding-top: 40px;
+    
+}
+
 .row{
     height: 100px;
     width: 402px;

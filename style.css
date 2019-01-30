@@ -40,3 +40,18 @@ h1{
     border: solid 1px maroon;
     margin-left: 2px;
 }
+
+#clear{
+    border-radius: 50%;
+    color: maroon;
+    background-color: beige;
+    font-size: 14px;
+    margin: 40px auto;
+    display: block;
+    text-align: center;
+    padding: 12px 28px;
+}
+
+#clear:focus{
+    outline: none;
+}

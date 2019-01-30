@@ -1,5 +1,13 @@
+var res=document.getElementById('result');
+var a='';
+var b='';
+var first='';
+var second='';
+var operators=[];
+var tmp='';
+
 function add(a,b){
-    return a+b;
+    return parseFloat(a) + parseFloat(b);
 }
 
 function subtract(a,b){
@@ -15,15 +23,41 @@ function divide(a,b){
 }
 
 function operate(operator,a,b){
-    var result='';
-    if(operator=='plus'){
-        result=add(a,b);
-    }else if(operator=='minus'){
-        result=subtract(a,b);
-    }else if(operator=='product'){
-        result=multiply(a,b);
-    }else if(operator=='quotient'){
-        result=divide(a,b);
+    if(operator=='+'){
+        tmp=add(a,b);
+    }else if(operator=='-'){
+        tmp=subtract(a,b);
+    }else if(operator=='*'){
+        tmp=multiply(a,b);
+    }else if(operator=='/'){
+        tmp=divide(a,b);
     }
-    return result;
+    return tmp;
+}
+
+function sendValue(x){   
+    if(x=='+') operators+=' +';
+    if(x=='-') operators+=' -';
+    if(x=='*') operators+=' *';
+    if(x=='/') operators+=" /";
+
+    if(x=='='){
+        evaluate(res.innerHTML,operators);
+    }else{
+        res.append(x);
+    }
+}
+
+
+function evaluate(result,operators){
+    result=result.split(/[ +()*\/:?-]/g);
+    operators=operators.split(' ');
+    a=result[0];
+    for(var i=1; i<operators.length;i++){
+        b=result[i];
+        tmp=operate(operators[i],a,b);
+        a=tmp;
+    }
+    res.innerHTML="";
+    res.append(tmp);  
 }

@@ -56,8 +56,26 @@ function evaluate(result,operators){
     for(var i=1; i<operators.length;i++){
         b=result[i];
         tmp=operate(operators[i],a,b);
+        // operators=removeFromArray(operators,operators[i]);
         a=tmp;
     }
     res.innerHTML="";
     res.append(tmp);  
+}
+
+function clearField(){
+    res.innerHTML="";
+}
+
+function removeFromArray(arr, removeNum){
+    var newArr=[];
+    var j=0;
+    for(var i=0; i<arr.length;i++){
+        if(arr[i] ==removeNum) continue;
+        else{
+            newArr[j]=arr[i];
+            j++;
+        }
+    }
+    return newArr;
 }

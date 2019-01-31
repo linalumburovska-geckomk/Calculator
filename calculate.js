@@ -36,14 +36,12 @@ function operate(operator,a,b){
 }
 
 function sendValue(x){ 
-    // if(x=='.'){
-    //     res.append('.');
-    //     return;
-    // }
-
+        
     if(x.charAt(0)==0 && x.length>1){
-        x=x.slice(1);
-    }  
+        if(x.charAt(1)==7 || x.charAt(1)==8 || x.charAt(1)==9 || x.charAt(1)==4 || x.charAt(1)==5 || x.charAt(1)==6 || x.charAt(1)==1 || x.charAt(1)==2 || x.charAt(1)==3){
+            x=x.slice(1);
+        }
+    }
 
 
     if(x=='+') operators+=' +';
@@ -54,8 +52,11 @@ function sendValue(x){
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
-        if(res.innerHTML==0) res.innerHTML="";
-        res.append(x);
+        if(res.innerHTML==0) {
+            res.innerHTML=""; 
+        }
+    
+        res.append(x); 
     }
 }
 
@@ -72,11 +73,14 @@ function evaluate(result,operators){
             disable();
             return;
         }
+        a=Math.round( a * 1000 ) / 1000;
+        b=Math.round( b * 1000 ) / 1000;
         tmp=operate(operators[i],a,b);
         // operators=removeFromArray(operators,operators[i]);
         a=tmp;
     }
     res.innerHTML="";
+    tmp=Math.round(tmp*1000)/1000;
     res.append(tmp);  
     refresh();
 }

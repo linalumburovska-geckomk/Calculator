@@ -5,6 +5,7 @@ var b='';
 var operators=[];
 var tmp='';
 var onceClicked=false;
+var firstZero=false;
 
 function add(a,b){
     return parseFloat(a) + parseFloat(b);
@@ -35,8 +36,16 @@ function operate(operator,a,b){
     return tmp;
 }
 
-function sendValue(x){ 
-        
+function sendValue(x,zero){ 
+    if(zero==='true'){
+        console.log("H");
+        firstZero=false;
+        x='.';
+        res.append(x);
+        return;
+    }
+    
+    
     if(x.charAt(0)==0 && x.length>1){
         if(x.charAt(1)==7 || x.charAt(1)==8 || x.charAt(1)==9 || x.charAt(1)==4 || x.charAt(1)==5 || x.charAt(1)==6 || x.charAt(1)==1 || x.charAt(1)==2 || x.charAt(1)==3){
             x=x.slice(1);
@@ -52,9 +61,9 @@ function sendValue(x){
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
-        if(res.innerHTML==0) {
-            res.innerHTML=""; 
-        }
+        //if(res.innerHTML==0) {
+          //  res.innerHTML=""; 
+        //}
     
         res.append(x); 
     }
@@ -102,7 +111,7 @@ function disable(){
 }
 
 function clearField(){
-    res.innerHTML="0";
+    res.innerHTML="";
     var buttons=document.getElementsByClassName('number');
     var rows=document.getElementsByClassName('row');
     for(var i=0; i<rows.length;i++){

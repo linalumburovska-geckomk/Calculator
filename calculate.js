@@ -36,9 +36,16 @@ function operate(operator,a,b){
 }
 
 function sendValue(x){ 
-    if(x.charAt(0)==0){
+    // if(x=='.'){
+    //     res.append('.');
+    //     return;
+    // }
+
+    if(x.charAt(0)==0 && x.length>1){
         x=x.slice(1);
     }  
+
+
     if(x=='+') operators+=' +';
     if(x=='-') operators+=' -';
     if(x=='*') operators+=' *';
@@ -118,9 +125,9 @@ function removeFromArray(arr, removeNum){
 }
 
 function disableDecimal(){
-    decimal.style.display="none";
+    decimal.style.color="beige";
 }
 
 function enableDecimal(){
-    decimal.style.display="";
+    decimal.style.color="maroon";
 }

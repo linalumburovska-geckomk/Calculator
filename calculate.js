@@ -67,9 +67,34 @@ function sendValue(x,zero){
 
 
 function evaluate(result,operators){
-    if(tmp<0){
+    if(tmp<0 && checkIfMinus(operators)){
         result=result.split(/[ +()*\/:?]/g);
-    }else{
+        a=result[0];
+        var newA=[];
+        newA=a.split(/[-]/g);
+        a=Math.round( newA[1] * 1000 ) / 1000;
+        b=Math.round( newA[2] * 1000 ) / 1000;
+        tmp=operate('+',a*(-1),b*(-1));
+        a=tmp;
+        res.innerHTML="";
+        tmp=Math.round(tmp*1000)/1000;
+        res.append(tmp);  
+        refresh();
+        return;
+    }else if(tmp<0 && !checkIfMinus(operators)){
+        var newA=[];
+        newA=result.split(/[-+]/g);
+        a=Math.round( newA[1] * 1000 ) / 1000;
+        b=Math.round( newA[2] * 1000 ) / 1000;
+        tmp=operate('-',a,b);
+        a=tmp;
+        res.innerHTML="";
+        tmp=Math.round(tmp*1000)/1000;
+        res.append(tmp*(-1));  
+        refresh();
+        return;
+    }
+    else{
         result=result.split(/[ +()*\/:?-]/g);
     }
     
@@ -94,6 +119,14 @@ function evaluate(result,operators){
     res.append(tmp);  
     refresh();
 }
+
+function checkIfMinus(arr){
+    for(var i=0; i<arr.length;i++){
+        if(arr[i]=='-') return true;
+    }
+    return false;
+}
+
 
 function refresh(){
     operators=[];

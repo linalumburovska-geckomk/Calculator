@@ -61,19 +61,21 @@ function sendValue(x,zero){
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
-        //if(res.innerHTML==0) {
-          //  res.innerHTML=""; 
-        //}
-    
         res.append(x); 
     }
 }
 
 
 function evaluate(result,operators){
-    result=result.split(/[ +()*\/:?-]/g);
+    if(tmp<0){
+        result=result.split(/[ +()*\/:?]/g);
+    }else{
+        result=result.split(/[ +()*\/:?-]/g);
+    }
+    
     if(operators.length>0) operators=operators.split(' ');
     a=result[0];
+    
     for(var i=1; i<operators.length;i++){
         b=result[i];
         if(operators[i]=='/' && b=='0') {
@@ -85,7 +87,6 @@ function evaluate(result,operators){
         a=Math.round( a * 1000 ) / 1000;
         b=Math.round( b * 1000 ) / 1000;
         tmp=operate(operators[i],a,b);
-        // operators=removeFromArray(operators,operators[i]);
         a=tmp;
     }
     res.innerHTML="";
@@ -124,23 +125,11 @@ function clearField(){
     enableDecimal();
 }
 
-function removeFromArray(arr, removeNum){
-    var newArr=[];
-    var j=0;
-    for(var i=0; i<arr.length;i++){
-        if(arr[i] ==removeNum) continue;
-        else{
-            newArr[j]=arr[i];
-            j++;
-        }
-    }
-    return newArr;
-}
 
 function disableDecimal(){
     decimal.style.color="beige";
 }
 
 function enableDecimal(){
-    decimal.style.color="maroon";
+    decimal.style.color="darkgoldenrod";
 }

@@ -38,7 +38,6 @@ function operate(operator,a,b){
 
 function sendValue(x,zero){ 
     if(zero==='true'){
-        console.log("H");
         firstZero=false;
         x='.';
         res.append(x);
@@ -67,11 +66,14 @@ function sendValue(x,zero){
 
 
 function evaluate(result,operators){
+
     if(tmp<0 && checkIfMinus(operators)){
+        console.log("A");
         result=result.split(/[ +()*\/:?]/g);
         a=result[0];
         var newA=[];
         newA=a.split(/[-]/g);
+
         a=Math.round( newA[1] * 1000 ) / 1000;
         b=Math.round( newA[2] * 1000 ) / 1000;
         tmp=operate('+',a*(-1),b*(-1));
@@ -82,8 +84,16 @@ function evaluate(result,operators){
         refresh();
         return;
     }else if(tmp<0 && !checkIfMinus(operators)){
+        console.log("B");
         var newA=[];
-        newA=result.split(/[-+]/g);
+        newA=result.split(/[-+/]/g);
+        if(newA[newA.length-1]=='0') {
+            res.innerHTML="";
+            res.append("CANNOT DIVIDE BY ZERO");
+            disable();
+            return;
+        }
+
         a=Math.round( newA[1] * 1000 ) / 1000;
         b=Math.round( newA[2] * 1000 ) / 1000;
         tmp=operate('-',a,b);
@@ -95,12 +105,15 @@ function evaluate(result,operators){
         return;
     }
     else{
+        console.log("C");
         result=result.split(/[ +()*\/:?-]/g);
     }
     
     if(operators.length>0) operators=operators.split(' ');
-    a=result[0];
     
+    a=result[0];
+
+
     for(var i=1; i<operators.length;i++){
         b=result[i];
         if(operators[i]=='/' && b=='0') {
@@ -130,6 +143,7 @@ function checkIfMinus(arr){
 
 function refresh(){
     operators=[];
+
 }
 
 function disable(){

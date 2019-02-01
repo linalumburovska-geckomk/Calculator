@@ -109,7 +109,10 @@ function evaluate(result,operators){
         result=result.split(/[ +()*\/:?-]/g);
     }
     
-    if(operators.length>0) operators=operators.split(' ');
+    if(operators.length>0) {
+        operators=operators.split(' ');
+    }
+   
     
     a=result[0];
 
@@ -143,7 +146,6 @@ function checkIfMinus(arr){
 
 function refresh(){
     operators=[];
-
 }
 
 function disable(){

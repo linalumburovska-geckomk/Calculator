@@ -11,7 +11,7 @@ h1{
 }
 
 #calculator{
-    height: 607px;
+    height: 602px;
     width: 404px;
     background-color: beige;
     margin: 50px auto auto auto;
@@ -30,7 +30,7 @@ h1{
 }
 
 .number{
-    height: 75px;
+    height: 70px;
     width: 100.5px;
     background-color: beige;
     border: solid 1px maroon;

@@ -68,7 +68,6 @@ function sendValue(x,zero){
 function evaluate(result,operators){
 
     if(tmp<0 && checkIfMinus(operators)){
-        console.log("A");
         result=result.split(/[ +()*\/:?]/g);
         a=result[0];
         var newA=[];
@@ -84,7 +83,6 @@ function evaluate(result,operators){
         refresh();
         return;
     }else if(tmp<0 && !checkIfMinus(operators)){
-        console.log("B");
         var newA=[];
         newA=result.split(/[-+/]/g);
         if(newA[newA.length-1]=='0') {
@@ -105,7 +103,6 @@ function evaluate(result,operators){
         return;
     }
     else{
-        console.log("C");
         result=result.split(/[ +()*\/:?-]/g);
     }
     
@@ -176,9 +173,9 @@ function clearField(){
 
 
 function disableDecimal(){
-    decimal.style.color="beige";
+    decimal.style.display="none";
 }
 
 function enableDecimal(){
-    decimal.style.color="darkgoldenrod";
+    decimal.style.display="";
 }

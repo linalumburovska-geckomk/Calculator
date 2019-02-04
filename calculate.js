@@ -51,22 +51,39 @@ function sendValue(x,zero){
         }
     }
 
-
-    if(x=='+') operators+=' +';
-    if(x=='-') operators+=' -';
-    if(x=='*') operators+=' *';
-    if(x=='/') operators+=" /";
+    if(operators.length ==0){
+        if(x=='+'){
+            operators+=' +';
+        } 
+        if(x=='-') {
+            operators+=' -';
+        }
+        if(x=='*') {
+            operators+=' *';
+        }
+        if(x=='/'){
+            operators+=" /";
+        } 
+    }
+     
 
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
+        
+        var previousCharacter=res.innerHTML[res.innerHTML.length-1];
+        if(res.innerHTML.length>1){
+            if((numberOrSign(previousCharacter)=='1' && numberOrSign(x)=='1')){
+                return;
+            }
+        }
         res.append(x); 
     }
 }
 
 
 function evaluate(result,operators){
-
+   
     if(tmp<0 && checkIfMinus(operators)){
         result=result.split(/[ +()*\/:?]/g);
         a=result[0];
@@ -178,4 +195,15 @@ function disableDecimal(){
 
 function enableDecimal(){
     decimal.style.display="";
+}
+
+function numberOrSign(character){
+    //0 number
+    //1 sign
+    if(character=='1' || character=='2' || character=='3' || character=='4' || character=='5' || character=='6' || character=='7' || character=='8' || character=='9'){
+        return '0';
+    }else if(character=='+' || character=='-' || character=='*'|| character=='/' || character=='.'){
+        return '1';
+    }
+    return -1;
 }

@@ -59,17 +59,22 @@ h1{
     margin-left: 2px;
 }
 
-#clear{
+#buttons{
+    position: relative;
+    text-align: center;
+}
+
+.delete{
     border-radius: 50%;
     color: maroon;
     background-color: beige;
     font-size: 14px;
-    margin: 40px auto;
-    display: block;
+    margin:40px auto;
+    display: inline;
     text-align: center;
     padding: 12px 28px;
 }
 
-#clear:focus{
+.delete:focus{
     outline: none;
 }

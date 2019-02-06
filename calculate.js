@@ -202,3 +202,11 @@ function numberOrSign(character){
     }
     return -1;
 }
+
+function clearCharacter(){
+   var newString='';
+   for(var i=0; i<res.innerHTML.length-1; i++){
+       newString+=res.innerHTML[i];
+   }
+   res.innerHTML=newString;
+}

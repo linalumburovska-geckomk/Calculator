@@ -6,6 +6,44 @@ var operators=[];
 var tmp='';
 var firstZero=false;
 
+addEventListener("keypress",function(event){
+    console.log(event.keyCode);
+    if(event.keyCode==48){
+        sendValue('0','false');
+    }else if(event.keyCode==49){
+        sendValue('1','false');
+    }else if(event.keyCode==50){
+        sendValue('2','false');
+    }else if(event.keyCode==51){
+        sendValue('3','false');
+    }else if(event.keyCode==52){
+        sendValue('4','false');
+    }else if(event.keyCode==53){
+        sendValue('5','false');
+    }else if(event.keyCode==54){
+        sendValue('6','false');
+    }else if(event.keyCode==55){
+        sendValue('7','false');
+    }else if(event.keyCode==56){
+        sendValue('8','false');
+    }else if(event.keyCode==57){
+        sendValue('9','false');
+    }else if(event.keyCode==43){
+        sendValue('+','false');
+    }else if(event.keyCode==45){
+        sendValue('-','false');
+    }else if(event.keyCode==42){
+        sendValue('*','false');
+    }else if(event.keyCode==47){
+        sendValue('/','false');
+    }else if(event.keyCode==46){
+        sendValue('.','true');
+    }else if(event.keyCode==13){
+        sendValue('=','false');
+    }
+    
+});
+
 function add(a,b){
     return parseFloat(a) + parseFloat(b);
 }

@@ -4,7 +4,6 @@ var a='';
 var b='';
 var operators=[];
 var tmp='';
-var onceClicked=false;
 var firstZero=false;
 
 function add(a,b){
@@ -40,17 +39,24 @@ function sendValue(x,zero){
     if(zero==='true'){
         firstZero=false;
         x='.';
-        res.append(x);
-        return;
-    }
-    
-    
-    if(x.charAt(0)==0 && x.length>1){
-        if(x.charAt(1)==7 || x.charAt(1)==8 || x.charAt(1)==9 || x.charAt(1)==4 || x.charAt(1)==5 || x.charAt(1)==6 || x.charAt(1)==1 || x.charAt(1)==2 || x.charAt(1)==3){
-            x=x.slice(1);
+        var countDecimals=0;
+        var countSigns=0;
+        for(var i=0;i<res.innerHTML.length;i++){
+            if(res.innerHTML[i]=='.'){
+                countDecimals++;
+            }
+            if(numberOrSign(res.innerHTML[i])==1){
+                countSigns++;
+            }
+        }
+        if(countDecimals>0 && x=='.' && countSigns==1){
+            return;
+        }else{
+            res.append(x);
+            return;
         }
     }
-
+    
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
@@ -122,10 +128,7 @@ function evaluate(result,operators){
         operators=operators.split(' ');
     }
    
-    
     a=result[0];
-
-
     for(var i=1; i<operators.length;i++){
         b=result[i];
         if(operators[i]=='/' && b=='0') {

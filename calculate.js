@@ -51,31 +51,26 @@ function sendValue(x,zero){
         }
     }
 
-    if(operators.length ==0){
-        if(x=='+'){
-            operators+=' +';
-        } 
-        if(x=='-') {
-            operators+=' -';
-        }
-        if(x=='*') {
-            operators+=' *';
-        }
-        if(x=='/'){
-            operators+=" /";
-        } 
-    }
-     
-
     if(x=='='){
         evaluate(res.innerHTML,operators);
     }else{
         
         var previousCharacter=res.innerHTML[res.innerHTML.length-1];
-        if(res.innerHTML.length>1){
-            if((numberOrSign(previousCharacter)=='1' && numberOrSign(x)=='1')){
-                return;
+        if((numberOrSign(previousCharacter)=='1' && numberOrSign(x)=='1')){
+            return;
+        }else{
+            if(x=='+'){
+                operators+=' +';
+            } 
+            if(x=='-') {
+                operators+=' -';
             }
+            if(x=='*') {
+                operators+=' *';
+            }
+            if(x=='/'){
+                operators+=" /";
+            } 
         }
         res.append(x); 
     }

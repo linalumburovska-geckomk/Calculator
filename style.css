@@ -1,16 +1,16 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
     background-color:rosybrown;
 }
 
-h1{
+h1 {
     text-align: center;
     color: maroon;
     margin-top: 30px;
     font-size: 60px;
 }
 
-#calculator{
+#calculator {
     height: 602px;
     width: 404px;
     background-color: beige;
@@ -18,7 +18,7 @@ h1{
     border:  maroon;
 }
 
-#result{
+#result {
     height: 120px;
     width: 404px;
     background-color: beige;
@@ -29,7 +29,7 @@ h1{
     color: maroon;
 }
 
-.number{
+.number {
     height: 70px;
     width: 100.5px;
     background-color: beige;
@@ -38,33 +38,33 @@ h1{
     margin: -3px;
 }
 
-#seven,#eight,#nine,#quotient,#four,#five,#six,#product,#one,#two,#three,#minus,#zero,#plus,#equal,#decimal{
+.all {
     font-size: 20px;
     padding-top: 40px;
     text-align: center;
 }
 
-#seven,#eight,#nine,#four,#five,#six,#one,#two,#three,#zero{
+.digits {
     color: cornflowerblue;
 }
 
-#quotient,#product,#minus,#plus,#equal,#decimal{
+.operators {
     color: darkgoldenrod;
 }
 
-.row{
+.row {
     height: 108px;
     width: 402px;
     border: solid 1px maroon;
     margin-left: 2px;
 }
 
-#buttons{
+.buttons {
     position: relative;
     text-align: center;
 }
 
-.delete{
+.delete {
     border-radius: 50%;
     color: maroon;
     background-color: beige;
@@ -75,6 +75,6 @@ h1{
     padding: 12px 28px;
 }
 
-.delete:focus{
+.delete:focus {
     outline: none;
 }

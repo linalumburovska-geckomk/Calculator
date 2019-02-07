@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Calculator</title>
-        <link href="./style.css" type="text/css" rel="stylesheet" />
+        <link href="./style.css" rel="stylesheet" />
     </head>
     <body>
         <h1>Calculator</h1>
@@ -11,37 +11,36 @@
             <div id="result"></div>
 
             <div class="row">
-                <div class="number" id="seven" onclick="sendValue('7','false')">7</div>
-                <div class="number" id="eight" onclick="sendValue('8','false')">8</div>
-                <div class="number" id="nine" onclick="sendValue('9','false')">9</div>
-                <div class="number" id="quotient" onclick="sendValue('/','false');enableDecimal()">/</div>
+                <div class="number all digits" onclick="sendValue('7','false')">7</div>
+                <div class="number all digits" onclick="sendValue('8','false')">8</div>
+                <div class="number all digits" onclick="sendValue('9','false')">9</div>
+                <div class="number all operators" onclick="sendValue('/','false');enableDecimal()">/</div>
             </div>   
             <div class="row">
-                <div class="number" id="four" onclick="sendValue('4','false')">4</div>
-                <div class="number" id="five" onclick="sendValue('5','false')">5</div>
-                <div class="number" id="six" onclick="sendValue('6','false')">6</div>
-                <div class="number" id="product" onclick="sendValue('*','false');enableDecimal()">*</div>
+                <div class="number all digits" onclick="sendValue('4','false')">4</div>
+                <div class="number all digits" onclick="sendValue('5','false')">5</div>
+                <div class="number all digits" onclick="sendValue('6','false')">6</div>
+                <div class="number all operators" onclick="sendValue('*','false');enableDecimal()">*</div>
             </div> 
             <div class="row">
-                <div class="number" id="one" onclick="sendValue('1','false')">1</div>
-                <div class="number" id="two" onclick="sendValue('2','false')">2</div>
-                <div class="number" id="three" onclick="sendValue('3','false')">3</div>
-                <div class="number" id="minus" onclick="sendValue('-','false');enableDecimal()">-</div>
+                <div class="number all digits" onclick="sendValue('1','false')">1</div>
+                <div class="number all digits" onclick="sendValue('2','false')">2</div>
+                <div class="number all digits" onclick="sendValue('3','false')">3</div>
+                <div class="number all operators" onclick="sendValue('-','false');enableDecimal()">-</div>
             </div> 
             <div class="row">
-                <div class="number" id="zero" onclick="sendValue('0','false')">0</div>
-                <div class="number" id="plus" onclick="sendValue('+','false');enableDecimal()">+</div>
-                <div class="number" id="equal" onclick="sendValue('=','false');enableDecimal()">=</div>
-                <div class="number" id="decimal" onclick="sendValue('.','true');disableDecimal()">.</div>
+                <div class="number all digits" onclick="sendValue('0','false')">0</div>
+                <div class="number all operators" onclick="sendValue('+','false');enableDecimal()">+</div>
+                <div class="number all operators" onclick="sendValue('=','false');enableDecimal()">=</div>
+                <div class="number all operators" id="decimal" onclick="sendValue('.','true');disableDecimal()">.</div>
             </div> 
         </div>
 
-        <div id="buttons">
+        <div class="buttons">
             <button class="delete" id="clear" onclick="clearField()">Clear</button>
             <button class="delete" id="backspace" onclick="clearCharacter()">Backspace</button>
         </div>
         
-
-        <script type="text/javascript" src="./calculate.js"></script>
+        <script src="./calculate.js"></script>
     </body>
 </html>

@@ -11,34 +11,34 @@
             <div id="result"></div>
 
             <div class="row">
-                <div class="number all digits" onclick="sendValue('7','false')">7</div>
-                <div class="number all digits" onclick="sendValue('8','false')">8</div>
-                <div class="number all digits" onclick="sendValue('9','false')">9</div>
-                <div class="number all operators" onclick="sendValue('/','false');enableDecimal()">/</div>
+                <div class="number all digits">7</div>
+                <div class="number all digits">8</div>
+                <div class="number all digits">9</div>
+                <div class="number all operators">/</div>
             </div>   
             <div class="row">
-                <div class="number all digits" onclick="sendValue('4','false')">4</div>
-                <div class="number all digits" onclick="sendValue('5','false')">5</div>
-                <div class="number all digits" onclick="sendValue('6','false')">6</div>
-                <div class="number all operators" onclick="sendValue('*','false');enableDecimal()">*</div>
+                <div class="number all digits">4</div>
+                <div class="number all digits">5</div>
+                <div class="number all digits">6</div>
+                <div class="number all operators">*</div>
             </div> 
             <div class="row">
-                <div class="number all digits" onclick="sendValue('1','false')">1</div>
-                <div class="number all digits" onclick="sendValue('2','false')">2</div>
-                <div class="number all digits" onclick="sendValue('3','false')">3</div>
-                <div class="number all operators" onclick="sendValue('-','false');enableDecimal()">-</div>
+                <div class="number all digits">1</div>
+                <div class="number all digits">2</div>
+                <div class="number all digits">3</div>
+                <div class="number all operators">-</div>
             </div> 
             <div class="row">
-                <div class="number all digits" onclick="sendValue('0','false')">0</div>
-                <div class="number all operators" onclick="sendValue('+','false');enableDecimal()">+</div>
-                <div class="number all operators" onclick="sendValue('=','false');enableDecimal()">=</div>
-                <div class="number all operators" id="decimal" onclick="sendValue('.','true');disableDecimal()">.</div>
+                <div class="number all digits">0</div>
+                <div class="number all operators">+</div>
+                <div class="number all operators">=</div>
+                <div class="number all operators" id="decimal">.</div>
             </div> 
         </div>
 
         <div class="buttons">
-            <button class="delete" id="clear" onclick="clearField()">Clear</button>
-            <button class="delete" id="backspace" onclick="clearCharacter()">Backspace</button>
+            <button class="delete">Clear</button>
+            <button class="delete">Backspace</button>
         </div>
         
         <script src="./calculate.js"></script>
